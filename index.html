@@ -1,10 +1,905 @@
-<html>
-  <head>
-    <title>AURIX</title>
-  </head>
-  <body>
-    <div>
-      <h1>Aurix Technologies</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURIX | Enterprise Architecture & Digital Transformation</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1E2761;
+    --navy-mid: #253380;
+    --navy-deep: #151d4a;
+    --teal: #0D9488;
+    --teal-lt: #99f6e4;
+    --gold: #F59E0B;
+    --gold-lt: #FEF3C7;
+    --white: #FFFFFF;
+    --off-white: #F8FAFC;
+    --slate: #64748B;
+    --dark: #1E293B;
+    --light-border: #E2E8F0;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: #eaecf0;
+    color: var(--dark);
+    line-height: 1.6;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* PAGE WRAPPER */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 16mm;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,.18);
+  }
+
+  /* ===================== PAGE 1 ===================== */
+
+  /* HERO */
+  .hero {
+    background: var(--navy-deep);
+    padding: 48px 48px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(13,148,136,.22) 0%, transparent 70%);
+  }
+  .hero::after {
+    content:'';
+    position: absolute;
+    left: 0; top: 0;
+    width: 5px; height: 100%;
+    background: var(--teal);
+  }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 38px;
+    line-height: 1.12;
+    color: var(--white);
+    max-width: 380px;
+    margin-bottom: 12px;
+  }
+  .hero h1 em {
+    color: var(--teal-lt);
+    font-style: italic;
+  }
+  .hero-sub {
+    font-size: 13.5px;
+    color: #a8b8d8;
+    max-width: 360px;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 28px;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--teal-lt);
+    line-height: 1;
+    display: block;
+  }
+  .hero-stat .lbl {
+    font-size: 10px;
+    color: #8899bb;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 3px;
+    display: block;
+  }
+  .hero-divider {
+    width: 32px; height: 2px;
+    background: var(--teal);
+    margin: 28px 0 20px;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after {
+    content:'';
+    flex: 1;
+    height: 1px;
+    background: var(--light-border);
+    max-width: 80px;
+  }
+
+  /* CONTENT AREA PAGE 1 */
+  .p1-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .p1-left {
+    padding: 36px 32px 36px 48px;
+    border-right: 1px solid var(--light-border);
+  }
+  .p1-right {
+    padding: 36px 48px 36px 32px;
+  }
+
+  /* BIO */
+  .bio-text {
+    font-size: 12.5px;
+    color: var(--dark);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .bio-text strong { color: var(--navy); font-weight: 600; }
+
+  /* CREDENTIAL CHIPS */
+  .cred-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+  .cred {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: var(--off-white);
+    border: 1px solid var(--light-border);
+    color: var(--navy);
+  }
+
+  /* OUTCOME CARDS */
+  .outcome-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .outcome-card {
+    background: var(--navy-deep);
+    border-radius: 10px;
+    padding: 14px 14px 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .outcome-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--teal);
+  }
+  .outcome-card .big {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--teal-lt);
+    line-height: 1;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .outcome-card .label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: block;
+  }
+  .outcome-card .client {
+    font-size: 10px;
+    color: #8899bb;
+    margin-top: 2px;
+    display: block;
+  }
+
+  /* SERVICES CIRCLES DIAGRAM */
+  .services-diagram {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .svc-center {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    border: 3px solid var(--teal);
+  }
+  .svc-center span {
+    font-family: var(--serif);
+    font-size: 10px;
+    color: var(--white);
+    text-align: center;
+    line-height: 1.3;
+  }
+  .svc-ring {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: -20px;
+    padding-top: 24px;
+  }
+  .svc-pill {
+    background: var(--off-white);
+    border: 1.5px solid var(--light-border);
+    border-radius: 8px;
+    padding: 11px 12px;
+    position: relative;
+  }
+  .svc-pill.teal-border { border-color: var(--teal); }
+  .svc-pill.navy-border { border-color: var(--navy); }
+  .svc-pill .svc-icon {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .svc-pill h4 {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .svc-pill p {
+    font-size: 10px;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+
+  /* CLIENTS LOGOS strip */
+  .client-strip {
+    background: var(--off-white);
+    border-top: 1px solid var(--light-border);
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .client-strip .strip-label {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+  .client-chip {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: var(--white);
+    border: 1px solid var(--light-border);
+    color: var(--navy);
+  }
+
+  /* ===================== PAGE 2 ===================== */
+  .p2-hero {
+    background: var(--teal);
+    padding: 28px 48px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .p2-hero::after {
+    content: '';
+    position: absolute;
+    right: -40px; bottom: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+  }
+  .p2-hero h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--white);
+  }
+  .p2-hero p {
+    font-size: 12.5px;
+    color: rgba(255,255,255,.85);
+    margin-top: 6px;
+    max-width: 480px;
+  }
+
+  .p2-body {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+
+  .p2-left {
+    padding: 32px 28px 32px 48px;
+    border-right: 1px solid var(--light-border);
+  }
+  .p2-right {
+    padding: 32px 48px 32px 28px;
+  }
+
+  /* SKILLS RADAR / VISUAL */
+  .tech-wheel {
+    margin-bottom: 28px;
+  }
+  .tech-category {
+    margin-bottom: 14px;
+  }
+  .tech-cat-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .tech-cat-icon {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .tc-navy { background: var(--navy); }
+  .tc-teal { background: var(--teal); }
+  .tc-gold { background: var(--gold); }
+  .tech-cat-name {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .tech-bar-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .tech-tag {
+    font-size: 9.5px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    background: var(--off-white);
+    border: 1px solid var(--light-border);
+    color: var(--dark);
+  }
+  .tech-tag.primary {
+    background: #e0f2fe;
+    border-color: #7dd3fc;
+    color: #0369a1;
+  }
+  .tech-tag.teal {
+    background: #ccfbf1;
+    border-color: #5eead4;
+    color: #0f766e;
+  }
+  .tech-tag.gold {
+    background: var(--gold-lt);
+    border-color: #fcd34d;
+    color: #92400e;
+  }
+
+  /* DELIVERY PROCESS */
+  .delivery-steps {
+    margin-bottom: 22px;
+  }
+  .d-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--light-border);
+  }
+  .d-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .d-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    font-family: var(--serif);
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .d-step-body h4 {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .d-step-body p {
+    font-size: 10.5px;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+  .d-tag {
+    display: inline-block;
+    font-size: 9px;
+    padding: 1px 7px;
+    border-radius: 10px;
+    background: var(--gold-lt);
+    color: #92400e;
+    border: 1px solid #fcd34d;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+
+  /* ENGAGEMENTS */
+  .engagement-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 22px;
+  }
+  .e-card {
+    border: 1.5px solid var(--light-border);
+    border-radius: 9px;
+    padding: 13px 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .e-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+  }
+  .e-card.navy::before { background: var(--navy); }
+  .e-card.teal::before { background: var(--teal); }
+  .e-card.gold::before { background: var(--gold); }
+  .e-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+  }
+  .e-card h4 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-left: 8px;
+  }
+  .e-card .duration {
+    font-size: 9.5px;
+    color: var(--slate);
+    white-space: nowrap;
+    margin-left: 8px;
+  }
+  .e-card p {
+    font-size: 10.5px;
+    color: var(--slate);
+    margin-left: 8px;
+    line-height: 1.5;
+  }
+
+  /* DIFFERENTIATOR GRID */
+  .diff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .diff-item {
+    background: var(--navy-deep);
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .diff-item .di-icon { font-size: 18px; margin-bottom: 5px; display: block; }
+  .diff-item h4 { font-size: 10.5px; font-weight: 600; color: var(--teal-lt); margin-bottom: 3px; }
+  .diff-item p { font-size: 9.5px; color: #8899bb; line-height: 1.5; }
+
+  /* CTA FOOTER */
+  .p2-footer {
+    background: var(--navy-deep);
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .cta-text h3 {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+  .cta-text p { font-size: 11px; color: #8899bb; }
+  .cta-button {
+    background: var(--teal);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 11px 24px;
+    border-radius: 8px;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+  .cta-contact { font-size: 10.5px; color: #8899bb; text-align: right; }
+  .cta-contact strong { color: var(--teal-lt); display: block; font-size: 12px; }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin-bottom: 0; }
+    .page + .page { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1 ==================== -->
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-eyebrow">Enterprise Architecture · Digital Transformation · Generative AI</div>
+    <h1>Transforming Enterprise Technology into <em>Measurable Business Outcomes</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Enterprise Architecture consultancy specialising in Financial Services, Adobe AEM, and multi-cloud delivery — built on 25 years of hands-on delivery across three continents.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">35+</span><span class="lbl">Global brands</span></div>
+      <div class="hero-stat"><span class="num">25</span><span class="lbl">Years experience</span></div>
+      <div class="hero-stat"><span class="num">3</span><span class="lbl">Major UK banks</span></div>
+      <div class="hero-stat"><span class="num">70</span><span class="lbl">Countries served</span></div>
     </div>
-  </body>
+  </div>
+
+  <div class="p1-body">
+
+    <div class="p1-left">
+      <div class="section-label">Founder Profile</div>
+
+      <p class="bio-text">
+        Our founder is a <strong>Senior Enterprise Architect</strong> with a rare combination: strategic architecture fluency from boardroom to blueprint, paired with hands-on full-stack engineering capability. He has personally designed, built, and delivered digital platforms for some of the world's most demanding organisations in Banking, Manufacturing, Retail, Telecom and Travel domains.
+      </p>
+      <p class="bio-text">
+        His <strong>Adobe AEM specialisation</strong> is among the deepest in the UK market, spanning 35+ global brands across banking, travel, automotive, retail, and insurance. His recent work includes a <strong>GenAI architecture governance platform</strong> and an AI-driven financial advice application — both in live production.
+      </p>
+
+      <div class="section-label" style="margin-top:18px;">Certifications & Credentials</div>
+      <div class="cred-grid">
+        <span class="cred">Microsoft Azure Expert</span>
+        <span class="cred">CISSP</span>
+        <span class="cred">AWS Architect Pro</span>
+        <span class="cred">CCNP Security</span>
+        <span class="cred">GCP Cloud Leader</span>
+        <span class="cred">AEM DevOps Pro</span>
+        <span class="cred">Oracle OCI Associate</span>
+        <span class="cred">O'Reilly Modern EA</span>
+      </div>
+
+      <div class="section-label">Proven Business Outcomes</div>
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <span class="big">$50M</span>
+          <span class="label">OPEX/year saved</span>
+          <span class="client">Fintech</span>
+        </div>
+        <div class="outcome-card">
+          <span class="big">4×</span>
+          <span class="label">Engineering velocity</span>
+          <span class="client">Bank</span>
+        </div>
+        <div class="outcome-card">
+          <span class="big">£600K</span>
+          <span class="label">Revenue/month uplift</span>
+          <span class="client">Hotel</span>
+        </div>
+        <div class="outcome-card">
+          <span class="big">70%</span>
+          <span class="label">Cloud cost reduction</span>
+          <span class="client">University</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="p1-right">
+      <div class="section-label">Core Service Lines</div>
+
+      <div class="services-diagram">
+        <div class="svc-center">
+          <span>Outcome-Based<br>Advisory &<br>Delivery</span>
+        </div>
+        <div class="svc-ring">
+          <div class="svc-pill teal-border">
+            <span class="svc-icon">🏛️</span>
+            <h4>Enterprise Architecture</h4>
+            <p>TOGAF 10 · Multi-cloud blueprints · Governance · Legacy modernisation</p>
+          </div>
+          <div class="svc-pill navy-border">
+            <span class="svc-icon">🤖</span>
+            <h4>Generative AI Advisory</h4>
+            <p>GenAI strategy · Responsible AI governance · LLM integration · PoC delivery</p>
+          </div>
+          <div class="svc-pill navy-border">
+            <span class="svc-icon">☁️</span>
+            <h4>Cloud & DevOps Delivery</h4>
+            <p>AWS · Azure · GCP · IaC · CI/CD pipelines · FinOps</p>
+          </div>
+          <div class="svc-pill teal-border">
+            <span class="svc-icon">✨</span>
+            <h4>Digital Experience Platforms</h4>
+            <p>Adobe AEM · Personalisation · Omnichannel commerce · API-first architecture</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label" style="margin-top: 4px;">Industries We Serve</div>
+      <div class="cred-grid">
+        <span class="cred">Financial Services</span>
+        <span class="cred">Fintech</span>
+        <span class="cred">Insurance</span>
+        <span class="cred">Retail</span>
+        <span class="cred">Automotive</span>
+        <span class="cred">Travel</span>
+        <span class="cred">Healthcare</span>
+        <span class="cred">Education</span>
+        <span class="cred">Telecoms</span>
+        <span class="cred">Manufacturing</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="client-strip">
+
+  </div>
+</div>
+
+
+<!-- ==================== PAGE 2 ==================== -->
+<div class="page">
+
+  <div class="p2-hero">
+    <h2>Technical Depth. Delivered at Scale.</h2>
+    <p>Full-stack expertise from network infrastructure to cloud-native AI — backed by 25 years of hands-on delivery across regulated industries.</p>
+  </div>
+
+  <div class="p2-body">
+
+    <div class="p2-left">
+      <div class="section-label">Technology Expertise</div>
+
+      <div class="tech-wheel">
+
+        <div class="tech-category">
+          <div class="tech-cat-head">
+            <div class="tech-cat-icon tc-teal">☁️</div>
+            <span class="tech-cat-name">Cloud & Infrastructure</span>
+          </div>
+          <div class="tech-bar-wrap">
+            <span class="tech-tag teal">AWS</span>
+            <span class="tech-tag teal">Azure</span>
+            <span class="tech-tag teal">GCP</span>
+            <span class="tech-tag teal">Oracle OCI</span>
+            <span class="tech-tag">OpenStack</span>
+            <span class="tech-tag">IBM Cloud</span>
+            <span class="tech-tag">Terraform</span>
+            <span class="tech-tag">Ansible</span>
+            <span class="tech-tag">Kubernetes</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">GitOps</span>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <div class="tech-cat-head">
+            <div class="tech-cat-icon tc-navy">✨</div>
+            <span class="tech-cat-name">Digital Experience (Adobe)</span>
+          </div>
+          <div class="tech-bar-wrap">
+            <span class="tech-tag primary">AEM</span>
+            <span class="tech-tag primary">Analytics</span>
+            <span class="tech-tag primary">Target</span>
+            <span class="tech-tag primary">Campaign</span>
+            <span class="tech-tag primary">Workfront</span>
+            <span class="tech-tag">Salesforce</span>
+            <span class="tech-tag">Pega</span>
+            <span class="tech-tag">Liferay</span>
+            <span class="tech-tag">SiteCore</span>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <div class="tech-cat-head">
+            <div class="tech-cat-icon tc-gold">🤖</div>
+            <span class="tech-cat-name">AI & Data</span>
+          </div>
+          <div class="tech-bar-wrap">
+            <span class="tech-tag gold">ChatGPT / OpenAI</span>
+            <span class="tech-tag gold">Persado</span>
+            <span class="tech-tag gold">Adobe Sensei</span>
+            <span class="tech-tag">DataBricks</span>
+            <span class="tech-tag">Kafka</span>
+            <span class="tech-tag">Hadoop</span>
+            <span class="tech-tag">Power BI</span>
+            <span class="tech-tag">Splunk / ELK</span>
+            <span class="tech-tag">Dynatrace</span>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <div class="tech-cat-head">
+            <div class="tech-cat-icon tc-navy">💻</div>
+            <span class="tech-cat-name">Engineering Stack</span>
+          </div>
+          <div class="tech-bar-wrap">
+            <span class="tech-tag primary">Java</span>
+            <span class="tech-tag primary">Python</span>
+            <span class="tech-tag primary">React</span>
+            <span class="tech-tag primary">Node.js</span>
+            <span class="tech-tag">Go</span>
+            <span class="tech-tag">Rust</span>
+            <span class="tech-tag">Angular</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">GraphQL</span>
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">C / C++</span>
+            <span class="tech-tag">APIGEE · Kong</span>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <div class="tech-cat-head">
+            <div class="tech-cat-icon tc-teal">🔒</div>
+            <span class="tech-cat-name">Security & Networking</span>
+          </div>
+          <div class="tech-bar-wrap">
+            <span class="tech-tag">CISSP</span>
+            <span class="tech-tag">Hedera Blockchain</span>
+            <span class="tech-tag">ForgeRock SSO</span>
+            <span class="tech-tag">OpenID</span>
+            <span class="tech-tag">BGP / MPLS</span>
+            <span class="tech-tag">Firewall / VPN</span>
+            <span class="tech-tag">CCNP Security</span>
+            <span class="tech-tag">ZAP</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="p2-right">
+      <div class="section-label">Our Delivery Model</div>
+
+      <div class="delivery-steps">
+        <div class="d-step">
+          <div class="d-num">1</div>
+          <div class="d-step-body">
+            <h4>Diagnose</h4>
+            <p>Architecture review, tech debt audit, and stakeholder alignment. We identify the gaps costing you time and money.</p>
+            <span class="d-tag">2–3 weeks · Fixed fee</span>
+          </div>
+        </div>
+        <div class="d-step">
+          <div class="d-num">2</div>
+          <div class="d-step-body">
+            <h4>Blueprint</h4>
+            <p>Target-state architecture, cloud & data strategy, and a costed transformation roadmap with clear business KPIs.</p>
+            <span class="d-tag">3–4 weeks · Fixed fee</span>
+          </div>
+        </div>
+        <div class="d-step">
+          <div class="d-num">3</div>
+          <div class="d-step-body">
+            <h4>Deliver</h4>
+            <p>Hands-on build alongside your engineering teams — full-stack to cloud. Senior architect on every workstream.</p>
+            <span class="d-tag">Ongoing · KPIs agreed upfront</span>
+          </div>
+        </div>
+        <div class="d-step">
+          <div class="d-num">4</div>
+          <div class="d-step-body">
+            <h4>Measure</h4>
+            <p>Business outcomes tracked monthly: revenue uplift, OPEX savings, NPS improvement, engineering velocity.</p>
+            <span class="d-tag">Monthly reporting · Outcome-based</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label">Engagement Options</div>
+      <div class="engagement-cards">
+        <div class="e-card navy">
+          <div class="e-card-head">
+            <h4>Architecture Review & Roadmap</h4>
+            <span class="duration">2–4 weeks</span>
+          </div>
+          <p>Actionable findings report, target-state blueprint, and prioritised delivery roadmap.</p>
+        </div>
+        <div class="e-card teal">
+          <div class="e-card-head">
+            <h4>Embedded Architect</h4>
+            <span class="duration">3–12 months</span>
+          </div>
+          <p>Part-time or full-time senior architecture leadership embedded in your team.</p>
+        </div>
+        <div class="e-card gold">
+          <div class="e-card-head">
+            <h4>GenAI Strategy Sprint</h4>
+            <span class="duration">4 weeks</span>
+          </div>
+          <p>Use-case map, governance framework, and proof-of-concept delivery.</p>
+        </div>
+      </div>
+
+      <div class="section-label">Why We're Different</div>
+      <div class="diff-grid">
+        <div class="diff-item">
+          <span class="di-icon">👤</span>
+          <h4>Senior-only delivery</h4>
+          <p>No hand-offs to junior consultants. Founder involvement on every engagement.</p>
+        </div>
+        <div class="diff-item">
+          <span class="di-icon">📊</span>
+          <h4>Outcome-based pricing</h4>
+          <p>We share the risk. Pricing tied to agreed business KPIs, not day-rates alone.</p>
+        </div>
+        <div class="diff-item">
+          <span class="di-icon">🏦</span>
+          <h4>Regulated industry expertise</h4>
+          <p>Deep FCA, TOGAF, and GDPR knowledge.</p>
+        </div>
+        <div class="diff-item">
+          <span class="di-icon">⚡</span>
+          <h4>Code + architecture</h4>
+          <p>We write production code as well as draw diagrams. No ivory-tower advisory.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="p2-footer">
+    <div class="cta-text">
+      <h3>Ready to transform your digital architecture?</h3>
+      <p>Book a complimentary 30-minute discovery call. No commitment required.</p>
+    </div>
+    <div class="cta-button">Book a Discovery Call →</div>
+    <div class="cta-contact">
+      <strong>hello@aurix-tech.com</strong>
+      London, United Kingdom
+    </div>
+  </div>
+
+</div>
+
+</body>
 </html>
